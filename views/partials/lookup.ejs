@@ -1,4 +1,3 @@
-<!-- resultsbloc -->
 <style>
 .titleStyle{
     font-size: 50px;
@@ -52,7 +51,7 @@
               Zip Code
             </label>
             <input class="form-control" type="number" required placeholder="10003" id="zipcode" maxlength="5" />
-          </div> <a class="btn btn-block btn-xl btn-sq btn-saffron" onclick="scrollToTarget('#resultsbloc')" id="addresssearch">Search</a>
+          </div> <a class="btn btn-block btn-xl btn-sq btn-saffron" onclick="scrollToTarget('#results')" id="addresssearch">Search</a>
         </form>
           <div id="results"></div>
           
@@ -61,19 +60,14 @@
     </div>
   </div>
 </div>
-<!-- resultsbloc END -->
 <script>
 
 $('#addresssearch').click(function(){
-    //console.log("working");
 
     var number = $('#number').val();
     var street = $('#street').val();
     var borough = $('#borough').val();
     var zipcode = $('#zipcode').val();
-
-    // console.log("zipcode");
-    // console.log(zipcode);
 
     var apiEnding = apiStarting + "pluto/" + number + "/" + street + "/" + borough + "/" + zipcode;
     console.log(apiEnding);
@@ -84,11 +78,6 @@ $('#addresssearch').click(function(){
       var holder = [data[0]];
       data = holder;
 
-      //console.log(data);
-      // var converted = JSON.stringify(data);
-      // console.log(converted);
-
-      // console.log(data[0] == undefined);
       var items = [];
       if(data[0] != undefined){
         
@@ -103,17 +92,11 @@ $('#addresssearch').click(function(){
         items.push("<th>Police Precinct</th>");
         items.push("</tr>");
         $.each( data, function( key, val ) {
-          // var url = $.param(val);
-
-          // url = url + '&number=' + number + '&streetaddress='+ street;
-          //console.log(val);
 
           var variables = "?number=" + number + "&streetaddress=" + street + "&boroughword="+ borough + "&zipcode="+ zipcode + "&lot="+ val.Lot + "&address="+ val.Address + "&boroughcode="+ val.BoroCode;
           var url = variables;
           console.log(url);
-          //console.log(val);
           items.push( "<tr>");
-          // items.push('<td><a href="/building?number='+ number +'&street='+ street +'&borough='+ borough +'&zipcode='+ zipcode +'">'+ val.Address + '</a></td>');
           items.push('<td><a href="/report' + url + '">'+ val.Address + '</a></td>');
           items.push("<td>$"+ (val.AssessTot).formatMoney(0) + "</td>");
           items.push("<td>"+ val.UnitsTotal +"</td>");
@@ -129,12 +112,6 @@ $('#addresssearch').click(function(){
         items.push('<div><h2>No properties were found for that address</h2></div>')
       }
 
-
-     
-      // $( "<ul/>", {
-      //       "class": "my-new-list",
-      //       html: items.join( "" )
-      // }).appendTo( "#results" );
       items = items.join("");
       $('#results').html(items);
 
