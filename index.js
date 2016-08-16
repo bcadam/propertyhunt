@@ -140,7 +140,7 @@ function getBinInfo(bin,response){
 
     var dobComplaints = 'SELECT * FROM DOBComplaints WHERE BIN = "' + bin + '" LIMIT 20;';
     var permitIssuance = 'SELECT * FROM DOBPermitIssuance WHERE Bin = "' + bin + '" LIMIT 20;';
-	var maintenanceCodeViolations = 'SELECT * FROM HousingMaintenanceCodeViolations WHERE BuildingId = "' + bin + '" LIMIT 10;';
+	var maintenanceCodeViolations = 'SELECT * FROM HousingMaintenanceCodeViolations WHERE BuildingId = "' + bin + '" LIMIT 20;';
     
     // console.log(permitIssuance);
     // console.log(dobComplaints);
