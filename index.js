@@ -19,6 +19,13 @@ app.get('/', function(request, response) {
     response.render('pages/index', {root: __dirname, websiteInfo: websiteInfo});
 });
 
+app.get('/about', function(request, response) {
+    response.render('pages/about', {root: __dirname, websiteInfo: websiteInfo});
+});
+
+app.get('/tos', function(request, response) {
+    response.render('pages/tos', {root: __dirname, websiteInfo: websiteInfo});
+});
 
 var connection = mysql.createConnection({
     host: 'property.coz6tg30r0u1.us-east-1.rds.amazonaws.com',
@@ -71,7 +78,6 @@ function getPluto(boroughword,zipcode,lot,address){
 	  	//connection.end();
 	});
 }
-
 
 function getPlutoAndBuildingAndMarket(query,response){
 	// { number: '70',
