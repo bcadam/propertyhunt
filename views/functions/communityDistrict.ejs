@@ -1,0 +1,81 @@
+<%
+communityDistrict = function(code){
+    // console.log("code");
+    // console.log(typeof code);
+    // console.log(code);
+  
+    if (code == 164)
+    {
+        return "Central Park";
+    }
+    else if (code == 226)
+    {
+        return "Van Cortland Park";
+    }
+    else if (code == 227)
+    {
+        return "Bronx Park";
+    }
+    else if (code == 228)
+    {
+        return "Pelham Bay Park";
+    }
+    else if (code == 355)
+    {
+        return "Prospect Park";
+    }
+    else if (code == 356)
+    {
+        return "Gateway National Recreation Area in Brooklyn";
+    }
+    else if (code == 480)
+    {
+        return "LaGuardia Airport";
+    }
+    else if (code == 481)
+    {
+        return "Flushing Meadow/Corona Park";
+    }
+    else if (code == 482)
+    {
+        return "Forest Park";
+    }
+    else if (code == 483)
+    {
+        return "JFK International Airport";
+    }
+    else if (code == 484)
+    {
+        return "Gateway National Recreation Area in Queens";
+    }
+    else if (code == 595)
+    {
+        return "Gateway National Recreation Area in Staten Island";
+    }
+    else if (code <= 112)
+    {
+        return "Manhattan";
+    }
+    else if (code <= 212)
+    {
+        return "Bronx";
+    }
+    else if (code <= 318)
+    {
+        return "Brooklyn";
+    }
+    else if (code <= 414)
+    {
+        return "Queens";
+    }
+    else if (code <= 503)
+    {
+        return "Staten Island";
+    }
+    else
+    {
+        return code;
+    }
+
+}
+%>

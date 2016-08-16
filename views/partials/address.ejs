@@ -1,0 +1,146 @@
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <form class="form-horizontal" role="form">
+        <fieldset>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="number">Building Number</label>
+            <div class="col-sm-10">
+              <input id="number" type="text" placeholder="120" class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="street">Street</label>
+            <div class="col-sm-10">
+              <input id="street" type="text" placeholder="Roebling" class="form-control">
+            </div>
+          </div>
+ 
+        <!-- Text input-->
+        <!--   <div class="form-group">
+          <label class="col-sm-2 control-label" for="burrogh">Street type</label>
+          <div class="col-sm-10">
+              <select class="form-control" id="burrogh">
+                <option>Street</option>
+                <option>Place</option>
+                <option>Close</option>
+                <option>Bronx</option>
+                <option>Staten Island</option>
+              </select>
+            </div>
+        </div> -->
+
+          <!-- Text input-->
+          <div class="form-group">
+          <label class="col-sm-2 control-label" for="borough">Burrough</label>
+          <div class="col-sm-10">
+              <select class="form-control" id="borough">
+                <option>Manhattan</option>
+                <option>Brooklyn</option>
+                <option>Queens</option>
+                <option>Bronx</option>
+                <option>Staten Island</option>
+              </select>
+            </div>
+        </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="zipcode">Zip Code</label>
+            <div class="col-sm-4">
+              <input type="text" placeholder="10011" id="zipcode" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="pull-right">
+<!--                 <button type="submit" class="btn btn-default">Cancel</button>
+ -->                <div id="addressSearch" class="btn btn-primary">Search</button>
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+    </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+
+<script>
+
+
+$('#addressSearch').click(function(){
+    //alert('working');
+
+    var number = $('#number').val();
+    var street = $('#street').val();
+    var borough = $('#borough').val();
+    var zipcode = $('#zipcode').val();
+
+    console.log("zipcode");
+    console.log(zipcode);
+
+    var apiEnding = "/api/pluto/" + number + "/" + street + "/" + borough + "/" + zipcode;
+
+    $.getJSON( apiEnding, function( data ) {
+
+
+      var holder = [data[0]];
+      data = holder;
+
+      console.log(data);
+      // var converted = JSON.stringify(data);
+      // console.log(converted);
+
+      var items = [];
+      items.push('<div class="table-responsive">');
+      items.push('<table class="table">');
+      items.push("<tr>");
+      items.push("<th>Address</th>");
+      items.push("<th>Assessed Total</th>");
+      items.push("<th>Units</th>");
+      items.push("<th>YearBuilt</th>");
+      items.push("<th>School District</th>");
+      items.push("<th>Police Precinct</th>");
+      items.push("</tr>");
+
+      $.each( data, function( key, val ) {
+        var url = $.param(val);
+
+        url = url + '&number=' + number + '&streetaddress='+ street;
+
+        //console.log(url);
+        //console.log(val);
+        items.push( "<tr>");
+        // items.push('<td><a href="/building?number='+ number +'&street='+ street +'&borough='+ borough +'&zipcode='+ zipcode +'">'+ val.Address + '</a></td>');
+        items.push('<td><a href="/building?' + url + '">'+ val.Address + '</a></td>');
+        items.push("<td>$"+ (val.AssessTot).formatMoney(0) + "</td>");
+        items.push("<td>"+ val.UnitsTotal +"</td>");
+        items.push("<td>"+ val.YearBuilt + "</td>");
+        items.push("<td>" + val.SchoolDist + "</td>");
+        items.push("<td>" + val.PolicePrct + "</td>");
+        items.push("</tr>" );
+      });
+
+
+      items.push('</table>');
+      items.push('</div">');
+
+     
+      $( "<ul/>", {
+            "class": "my-new-list",
+            html: items.join( "" )
+      }).appendTo( "#results" );
+
+    });
+});
+
+</script>
+
+
+
+
+
+

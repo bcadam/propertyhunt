@@ -1,0 +1,32 @@
+<%
+ownerType = function(code){
+    // console.log("code");
+    // console.log(typeof code);
+    // console.log(code);
+
+    console.log("Code from OwnerType");
+    console.log(code);
+    switch(code) {
+    case "C":
+        return "City Ownership"
+        break;
+    case "M":
+        return "Mixed City & Private Ownership"
+        break;
+    case "O":
+        return "Other - Public Authority, State or Federal Ownership"
+        break;
+    case "P":
+        return "Private Ownership"
+        break;
+    case "X":
+        return "Mixed"
+        break;
+    default:
+        return code;
+
+
+}
+
+}
+%>

@@ -1,0 +1,15 @@
+<% if (result.farmersMarkets[0] != undefined) { %>
+<div class="panel">
+    <div class="panel-body">
+        <h3 class="mg-md">
+			Local Farmers Markets
+		</h3>
+        <ul class="list-unstyled">
+         	<li><%- result.farmersMarkets['FarmersMarket Name'] %></li>
+        <% for (i = 0; i < result.farmersMarkets.length; i++) { %>
+		    <div><a href="https://www.google.com/search?q=<%= result.farmersMarkets[i]['FarmersMarket Name'] %>"><%= result.farmersMarkets[i]['FarmersMarket Name'] %></a></div>
+		<% } %>
+        </ul>
+    </div>
+</div>
+<% } %> 

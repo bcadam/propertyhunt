@@ -1,0 +1,134 @@
+<!-- resultsbloc -->
+<div id="resultsbloc">
+  <div class="container bloc-md">
+    <div class="row" id="resultsarea">
+      <div class="col-sm-12">
+          <h2 class=" mg-sm tc-gainsboro">
+          Run a Report On An NYC Building
+        </h2>
+        <form id="form" novalidate>
+          <div class="form-group">
+            <label>
+              Street Number
+            </label>
+            <input id="number" class="form-control" required placeholder="70" />
+          </div>
+          <div class="form-group">
+            <label>
+              Street Name
+            </label>
+            <input id="street" class="form-control" required placeholder="Roebling Street" />
+          </div>
+          <div class="form-group">
+            <select class="form-control" id="borough">
+              <option value="Manhattan">
+                Manhattan
+              </option>
+              <option value="Brooklyn">
+                Brooklyn
+              </option>
+              <option value="Queens">
+                Queens
+              </option>
+              <option value="Bronx">
+                Bronx
+              </option>
+              <option value="Staten Island">
+                Staten Island
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>
+              Zip Code
+            </label>
+            <input class="form-control" type="number" required placeholder="10003" id="zipcode" maxlength="5" />
+          </div> <a class="btn btn-block btn-xl btn-sq btn-saffron" onclick="scrollToTarget('#resultsbloc')" id="addresssearch">Search</a>
+        </form>
+          <div id="results"></div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- resultsbloc END -->
+<script>
+
+$('#addresssearch').click(function(){
+    //console.log("working");
+
+    var number = $('#number').val();
+    var street = $('#street').val();
+    var borough = $('#borough').val();
+    var zipcode = $('#zipcode').val();
+
+    // console.log("zipcode");
+    // console.log(zipcode);
+
+    var apiEnding = apiStarting + "pluto/" + number + "/" + street + "/" + borough + "/" + zipcode;
+    console.log(apiEnding);
+
+    $.getJSON( apiEnding, function( data ) {
+
+
+      var holder = [data[0]];
+      data = holder;
+
+      //console.log(data);
+      // var converted = JSON.stringify(data);
+      // console.log(converted);
+
+      // console.log(data[0] == undefined);
+      var items = [];
+      if(data[0] != undefined){
+        
+        items.push('<div class="table-responsive">');
+        items.push('<table class="table">');
+        items.push("<tr>");
+        items.push("<th>Address</th>");
+        items.push("<th>Assessed Total</th>");
+        items.push("<th>Units</th>");
+        items.push("<th>YearBuilt</th>");
+        items.push("<th>School District</th>");
+        items.push("<th>Police Precinct</th>");
+        items.push("</tr>");
+        $.each( data, function( key, val ) {
+          // var url = $.param(val);
+
+          // url = url + '&number=' + number + '&streetaddress='+ street;
+          //console.log(val);
+
+          var variables = "?number=" + number + "&streetaddress=" + street + "&boroughword="+ borough + "&zipcode="+ zipcode + "&lot="+ val.Lot + "&address="+ val.Address + "&boroughcode="+ val.BoroCode;
+          var url = variables;
+          console.log(url);
+          //console.log(val);
+          items.push( "<tr>");
+          // items.push('<td><a href="/building?number='+ number +'&street='+ street +'&borough='+ borough +'&zipcode='+ zipcode +'">'+ val.Address + '</a></td>');
+          items.push('<td><a href="/report' + url + '">'+ val.Address + '</a></td>');
+          items.push("<td>$"+ (val.AssessTot).formatMoney(0) + "</td>");
+          items.push("<td>"+ val.UnitsTotal +"</td>");
+          items.push("<td>"+ val.YearBuilt + "</td>");
+          items.push("<td>" + val.SchoolDist + "</td>");
+          items.push("<td>" + val.PolicePrct + "</td>");
+          items.push("</tr>" );
+        });
+        items.push('</table>');
+        items.push('</div">');
+      }
+      else {
+        items.push('<div><h2>No properties were found for that address</h2></div>')
+      }
+
+
+     
+      // $( "<ul/>", {
+      //       "class": "my-new-list",
+      //       html: items.join( "" )
+      // }).appendTo( "#results" );
+      items = items.join("");
+      $('#results').html(items);
+
+    });
+});
+</script>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+
+
+<% include ../partials/header.ejs %>
+   
+<!-- Google Analytics -->
+ 
+<!-- Google Analytics END -->
+    
+</head>
+<body>
+<!-- Main container -->
+<div class="page-container">
+ 
+<% include ../partials/nav.ejs %>
+<!-- bloc-4 -->
+<div class="bloc bgc-white l-bloc " id="bloc-4">
+	<div class="container bloc-md">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-4">
+								<h1 class="mg-md tc-dark-jungle-green" id="streetaddress">
+									<%= result.Address %>
+								</h1>
+								<h3 class="mg-md tc-dark-jungle-green" id="neighborhood">
+									<%# result.ZoneDist1 %>
+								</h3>
+								<h3 class="mg-md tc-dark-jungle-green" id="boro">
+									<%= data.boroughword %>
+								</h3>
+								<h4 class="mg-md tc-dark-jungle-green" id="zip">
+									<%= data.zipcode %>
+								</h4>
+								<% include ../partials/facts.ejs %>
+								<% include ../partials/markets.ejs %>
+							</div>
+							<div class="col-sm-8">
+								<%# include ../partials/height.ejs %>
+								<% include ../partials/administration.ejs %>
+								<% include ../partials/binInfo.ejs %>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+					<div id="results"></div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+<!-- bloc-4 END -->
+
+<!-- ScrollToTop Button -->
+<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1')"><span class="fa fa-chevron-up"></span></a>
+<!-- ScrollToTop Button END-->
+
+
+<% include ../partials/footer.ejs %>
+
+</div>
+<!-- Main container END -->
+    
+<script type="text/javascript" src="library.js"></script>
+
+</body>
+</html>

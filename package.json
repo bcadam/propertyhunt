@@ -1,0 +1,33 @@
+{
+  "name": "PropertyHunt",
+  "version": ".1",
+  "description": "Find information about a building in NYC",
+  "engines": {
+    "node": "5.9.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "chart.js": "^2.2.1",
+    "ejs": "2.4.1",
+    "express": "4.13.3",
+    "mongodb": "2.2.5",
+    "mysql": "2.11.1",
+    "request": "2.74.0"
+  },
+  "dev-dependencies": {
+    "nodemon": "1.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/node-js-getting-started"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "All rights reserved"
+}

@@ -1,0 +1,168 @@
+<%# console.log(result.bin) %>
+<%# REMOVE AFTER TESTING #%>
+<%# REMOVE AFTER TESTING #%>
+<%# REMOVE AFTER TESTING #%>
+<%# REMOVE AFTER TESTING #%>
+<%# result.bin = 1000003 %>
+<%# REMOVE AFTER TESTING #%>
+<%# REMOVE AFTER TESTING #%>
+<%# REMOVE AFTER TESTING #%>
+<%# REMOVE AFTER TESTING #%>
+<%# REMOVE AFTER TESTING #%>
+
+<% if (result.bin != undefined){ %>
+<div class="panel" id='complaints'>
+</div>
+<div class="panel" id="violations">
+</div>
+<div class="panel" id="permits">
+</div>
+<% } %>
+
+<script>
+$.getJSON( "api/bin/" + <%= result.bin %>, function( data ) {
+
+	//alert("<%= result.bin %>");
+	// console.log("data from json call in binInfi.ejs");
+	// console.log(data);
+     
+	// console.log('data.complaints');
+	// console.log(data.complaints);
+	// console.log('data.permitIssuance');
+	// console.log(data.permitIssuance);
+	// console.log('data.maintenanceCodeViolations');
+	// console.log(data.maintenanceCodeViolations);
+	var complaints = [];
+	complaints.push('<div class="panel-heading"><h3 class="mg-clear tc-dark-jungle-green">Complaints</h3></div><div class="panel-body"><div>');
+	complaints.push('<div class="table-responsive">');
+    
+	if (data.complaints != undefined && data.complaints.length != 0){
+
+		complaints.push('<table class="table" style="border:none">');
+		complaints.push('<tr style="border:none">');
+	    complaints.push('<th>Category</th>');
+	    complaints.push('<th>Number</th>');
+	    complaints.push('<th>Date Entered</th>');
+	    complaints.push('<th>Status</th>');
+	    complaints.push('</tr>');
+
+		for (var i = 0; i < data.complaints.length; i++) {
+			complaints.push('<tr>');
+			complaints.push('<td>' + data.complaints[i]['Complaint Category'] + '</td>');
+			complaints.push('<td>' + data.complaints[i]['Complaint Number'] + '</td>');
+			complaints.push('<td>' + data.complaints[i]['Date Entered'] + '</td>');
+			complaints.push('<td>' + data.complaints[i]['Status'] + '</td>');
+			complaints.push('</tr>');
+		}
+
+		complaints.push('</table>');
+    	complaints.push('</div">');
+	
+	}
+	else{
+		complaints.push('<div>We found no complaints for this address.')
+	}
+	complaints.push('</div></div>');
+	// console.log("complaints");
+	complaints = complaints.join("");
+	// console.log(complaints);
+	$('#complaints').html(complaints);
+
+
+	// console.log('data.violations');
+	// console.log(data.violations);
+	// console.log('data.permitIssuance');
+	// console.log(data.permitIssuance);
+	// console.log('data.maintenanceCodeViolations');
+	// console.log(data.maintenanceCodeViolations);
+	var violations = [];
+	violations.push('<div class="panel-heading"><h3 class="mg-clear tc-dark-jungle-green">Violations</h3></div><div class="panel-body"><div>');
+	violations.push('<div class="table-responsive">');
+
+
+	if (data.violations != undefined && data.violations.length != 0) {
+
+	    violations.push('<table class="table" style="border:none">');
+	    violations.push('<tr style="border:none">');
+	    violations.push('<th>Class</th>');
+	    violations.push('<th>ID</th>');
+	    violations.push('<th>Status</th>');
+	    violations.push('<th>Description</th>');
+	    violations.push('<th>Notice Issued</th>');
+	    violations.push('</tr>');
+
+	    for (var i = 0; i < data.violations.length; i++) {
+	        violations.push('<tr>');
+	        violations.push('<td>' + data.violations[i]['Class'] + '</td>');
+	        violations.push('<td>' + data.violations[i]['ViolationID'] + '</td>');
+	        violations.push('<td>' + data.violations[i]['CurrentStatus'] + '</td>');
+	        violations.push('<td>' + data.violations[i]['NOVDescription'] + '</td>');
+	        violations.push('<td>' + data.violations[i]['NOVIssuedDate'] + '</td>');
+	        violations.push('</tr>');
+	    }
+
+	    violations.push('</table>');
+	    violations.push('</div">');
+
+	} else {
+	    violations.push('<div>We found no violations for this address.')
+	}
+	violations.push('</div></div>');
+	// console.log("violations");
+	violations = violations.join("");
+	// console.log(violations);
+	$('#violations').html(violations);
+
+
+
+	// console.log('data.permits');
+	// console.log(data.permits);
+	// console.log('data.permitIssuance');
+	// console.log(data.permitIssuance);
+	// console.log('data.maintenanceCodepermits');
+	// console.log(data.maintenanceCodepermits);
+	var permits = [];
+	permits.push('<div class="panel-heading"><h3 class="mg-clear tc-dark-jungle-green">Permits</h3></div><div class="panel-body"><div>');
+	permits.push('<div class="table-responsive">');
+
+	// console.log('data.permits');
+	// console.log(data.permits);
+	if (data.permits != undefined && data.permits.length != 0) {
+
+	    permits.push('<table class="table" style="border:none">');
+	    permits.push('<tr style="border:none">');
+	    permits.push('<th>Job #</th>');
+	    permits.push('<th>Issuance Date</th>');
+	    permits.push('<th>Expiration Date</th>');
+	    permits.push('<th>Type</th>');
+	    permits.push('<th>Status</th>');
+	    permits.push('</tr>');
+
+	    for (var i = 0; i < data.permits.length; i++) {
+	        permits.push('<tr>');
+	        permits.push('<td>' + data.permits[i]['Job #'] + '</td>');
+	        permits.push('<td>' + data.permits[i]['Issuance Date'] + '</td>');
+	        permits.push('<td>' + data.permits[i]['Expiration Date'] + '</td>');
+	        permits.push('<td>' + data.permits[i]['Filing Status'] + '</td>');
+	        permits.push('<td>' + data.permits[i]['Permit Status'] + '</td>');
+	        permits.push('</tr>');
+	    }
+
+	    permits.push('</table>');
+	    permits.push('</div">');
+
+	} else {
+	    permits.push('<div>We found no permits for this address.')
+	}
+	permits.push('</div></div>');
+	// console.log("permits");
+	permits = permits.join("");
+	// console.log(permits);
+	$('#permits').html(permits);
+
+
+
+
+
+    });
+</script>

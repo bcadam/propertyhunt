@@ -1,0 +1,680 @@
+<%
+buildingClass = function(code){
+    switch (code) {
+        case "A0":
+            return "One Family Dwelling - Cape Code";
+            break;
+        case "A1":
+            return "One Family Dwelling - Two Stories Detached (Small or Moderate Size, With or Without Attic)";
+            break;
+        case "A2":
+            return "One Family Dwelling - One Story (Permanent Living Quarters)";
+            break;
+        case "A3":
+            return "One Family Dwelling - Large Suburban Residence";
+            break;
+        case "A4":
+            return "One Family Dwelling - City Residence";
+            break;
+        case "A5":
+            return "One Family Dwelling - Attached or Semi-Detached";
+            break;
+        case "A6":
+            return "One Family Dwelling - Summer Cottages/Mobile Homes/Trailers";
+            break;
+        case "A7":
+            return "One Family Dwelling - Mansion Type";
+            break;
+        case "A8":
+            return "One Family Dwelling - Bungalow Colony/Land Coop Owned";
+            break;
+        case "A9":
+            return "One Family Dwelling - Miscellaneous (Old Buildings, Attached & Semi-Detached Frame Houses, etc.)";
+            break;
+        case "B1":
+            return "Two Family Dwelling - Brick";
+            break;
+        case "B2":
+            return "Two Family Dwelling - Frame";
+            break;
+        case "B3":
+            return "Two Family Dwelling - Converted (From One Family)";
+            break;
+        case "B9":
+            return "Two Family Dwelling - Miscellaneous (City Type, Old, etc.)";
+            break;
+        case "C0":
+            return "Walk Up Apartments - Three Families";
+            break;
+        case "C1":
+            return "Walk Up Apartments - Over Six Families Without Stores";
+            break;
+        case "C2":
+            return "Walk Up Apartments - Five to Six Families";
+            break;
+        case "C3":
+            return "Walk Up Apartments - Four Families";
+            break;
+        case "C4":
+            return "Walk Up Apartments - Old Law Tenements";
+            break;
+        case "C5":
+            return "Walk Up Apartments - Converted Dwelling or Rooming House";
+            break;
+        case "C6":
+            return "Walk Up Apartments - Cooperative (Other Than Condominiums)";
+            break;
+        case "C7":
+            return "Walk Up Apartments - Over Six Families With Stores";
+            break;
+        case "C8":
+            return "Walk Up Apartments - Co-Op Conversion From Loft/Warehouse";
+            break;
+        case "C9":
+            return "Walk Up Apartments - Garden Apartments/Mobile Home Park/Trailer Park";
+            break;
+        case "CM":
+            return "Walk Up Apartments - Mobile Homes/Trailer Parks";
+            break;
+        case "D0":
+            return "Elevator Apartments - Co-op Conversion From Loft/Warehouse";
+            break;
+        case "D1":
+            return "Elevator Apartments - Semi-fireproof (Without Stores)";
+            break;
+        case "D2":
+            return "Elevator Apartments - Artists in Residence";
+            break;
+        case "D3":
+            return "Elevator Apartments - Fireproof (Standard Construction Without Stores)";
+            break;
+        case "D4":
+            return "Elevator Apartments - Cooperatives (Other Than Condominiums)";
+            break;
+        case "D5":
+            return "Elevator Apartments - Converted";
+            break;
+        case "D6":
+            return "Elevator Apartments - Fireproof - With Stores";
+            break;
+        case "D7":
+            return "Elevator Apartments - Semi-Fireproof With Stores";
+            break;
+        case "D8":
+            return "Elevator Apartments - Luxury Type";
+            break;
+        case "D9":
+            return "Elevator Apartments - Miscellaneous";
+            break;
+        case "E1":
+            return "Warehouses - Fireproof";
+            break;
+        case "E2":
+            return "Warehouses - Contractor's Warehouse";
+            break;
+        case "E3":
+            return "Warehouses - Semi-Fireproof";
+            break;
+        case "E4":
+            return "Warehouses - Frame, Metal";
+            break;
+        case "E6":
+            return "Warehouses - Governmental Warehouses";
+            break;
+        case "E7":
+            return "Warehouses - Warehouse, Self Storage";
+            break;
+        case "E9":
+            return "Warehouses - Miscellaneous";
+            break;
+        case "F1":
+            return "Factory and Industrial Buildings - Heavy Manufacturing (Fireproof)";
+            break;
+        case "F2":
+            return "Factory and Industrial Buildings - Special Construction (Printing Plant, etc., Fireproof)";
+            break;
+        case "F4":
+            return "Factory and Industrial Buildings - Semi-Fireproof";
+            break;
+        case "F5":
+            return "Factory and Industrial Buildings - Light Manufacturing";
+            break;
+        case "F8":
+            return "Factory and Industrial Buildings - Tank Farms";
+            break;
+        case "F9":
+            return "Factory and Industrial Buildings - Miscellaneous";
+            break;
+        case "G0":
+            return "Garages and Gasoline Stations - Residential Tax Class 1 Garage";
+            break;
+        case "G1":
+            return "Garages and Gasoline Stations - Garage - Two or More Stories";
+            break;
+        case "G2":
+            return "Garages and Gasoline Stations - One Story (Semi-Fireproof or Fireproof)";
+            break;
+        case "G3":
+            return "Garages and Gasoline Stations - Garage and Gase Station Combined";
+            break;
+        case "G4":
+            return "Garages and Gasoline Stations - Gas Station - Without Enclosed Lubrication";
+            break;
+        case "G5":
+            return "Garages and Gasoline Stations - Gas Station - Without Enclosed Lubrication";
+            break;
+        case "G6":
+            return "Garages and Gasoline Stations - Licensed Parking Lot";
+            break;
+        case "G7":
+            return "Garages and Gasoline Stations - Unlicensed Parking Lot";
+            break;
+        case "G8":
+            return "Garages and Gasoline Stations - Garage With Showroom";
+            break;
+        case "G9":
+            return "Garages and Gasoline Stations - Miscellaneous";
+            break;
+        case "GU":
+            return "Garages and Gasoline Stations - Car Sales/Rental without Showroom";
+            break;
+        case "GW":
+            return "Garages and Gasoline Stations - Car Wash or Lubritorium Facility";
+            break;
+        case "H1":
+            return "Hotels - Luxury Type - Built Prior to 1960";
+            break;
+        case "H2":
+            return "Hotels - Luxury Type - Built After 1960";
+            break;
+        case "H3":
+            return "Hotels - Transient Occupancy-Midtown Mn Area";
+            break;
+        case "H4":
+            return "Hotels - Motels";
+            break;
+        case "H5":
+            return "Hotels - Private Club, Luxury Type";
+            break;
+        case "H6":
+            return "Hotels - Apartment Hotels";
+            break;
+        case "H7":
+            return "Hotels - Apartment hotels-Co-op Owned";
+            break;
+        case "H8":
+            return "Hotels - Dormitories";
+            break;
+        case "H9":
+            return "Hotels - Miscellaneous";
+            break;
+        case "HB":
+            return "Hotels - Stylish Full Service Luxury Hotel";
+            break;
+        case "HH":
+            return "Hotels - Shared Facilities Budget Hotel";
+            break;
+        case "HR":
+            return "Hotels - Affordable Shared Room Housing";
+            break;
+        case "HS":
+            return "Hotels - Long-term Fully Equipped Units";
+            break;
+        case "I1":
+            return "Hospitals and Health - Hospitals, Sanitariums, Mental Institutions";
+            break;
+        case "I2":
+            return "Hospitals and Health - Infirmary";
+            break;
+        case "I3":
+            return "Hospitals and Health - Dispensary";
+            break;
+        case "I4":
+            return "Hospitals and Health - Staff Facilities";
+            break;
+        case "I5":
+            return "Hospitals and Health - Health Center, Child Center, Clinic";
+            break;
+        case "I6":
+            return "Hospitals and Health - Nursing Home";
+            break;
+        case "I7":
+            return "Hospitals and Health - Adult Care Facility";
+            break;
+        case "I9":
+            return "Hospitals and Health - Miscellaneous";
+            break;
+        case "J1":
+            return "Theatres - Art Type (Seating Capacity Under 400 Seats)";
+            break;
+        case "J2":
+            return "Theatres - Art Type (Seating Capacity Over 400 Seats)";
+            break;
+        case "J3":
+            return "Theatres - Motion Picture Theatre With Balcony";
+            break;
+        case "J4":
+            return "Theatres - Legitimate Theatres (Theatre Sole Use of Building)";
+            break;
+        case "J5":
+            return "Theatres - Theatre as Part of Building of Other Use";
+            break;
+        case "J6":
+            return "Theatres - T.V. Studios";
+            break;
+        case "J7":
+            return "Theatres - Off-Broadway Type";
+            break;
+        case "J8":
+            return "Theatres - Multi-Motion Picture Theatre";
+            break;
+        case "J9":
+            return "Theatres - Miscellaneous";
+            break;
+        case "K1":
+            return "Store Buildings - One Story Store Building";
+            break;
+        case "K2":
+            return "Store Buildings - Two Story or Store and Office";
+            break;
+        case "K3":
+            return "Store Buildings - Department Stores, Multi-Story";
+            break;
+        case "K4":
+            return "Store Buildings - Stores, Apartments Above";
+            break;
+        case "K5":
+            return "Store Buildings - Diners, Franchised Type Stand";
+            break;
+        case "K6":
+            return "Store Buildings - Shopping Centers With Parking Facilities";
+            break;
+        case "K7":
+            return "Store Buildings - Funeral Home";
+            break;
+        case "K8":
+            return "Store Buildings - Big Box Retail With or Without Parking";
+            break;
+        case "K9":
+            return "Store Buildings - Miscellaneous";
+            break;
+        case "L1":
+            return "Loft Buildings - Over Eight Stores (Mid-Manhattan Type With or Without Stores)";
+            break;
+        case "L2":
+            return "Loft Buildings - Fireproof - Loft and Storage Type (Without Retail Stores)";
+            break;
+        case "L3":
+            return "Loft Buildings - Semi-Fireproof";
+            break;
+        case "L8":
+            return "Loft Buildings - With Retail Stores (Other Than Type 1)";
+            break;
+        case "L9":
+            return "Loft Buildings - Miscellaneous";
+            break;
+        case "M1":
+            return "Churches, Synagogues, Etc. - Churches, Synagogue, Chapel";
+            break;
+        case "M2":
+            return "Churches, Synagogues, Etc. - Mission House (Non-Residential)";
+            break;
+        case "M3":
+            return "Churches, Synagogues, Etc. - Parsonage, Rectory";
+            break;
+        case "M4":
+            return "Churches, Synagogues, Etc. - Convents";
+            break;
+        case "M9":
+            return "Churches, Synagogues, Etc. - Miscellaneous";
+            break;
+        case "N1":
+            return "Asylums and Homes - Asylums";
+            break;
+        case "N2":
+            return "Asylums and Homes - Homes for Indigent Children, Aged, Homeless";
+            break;
+        case "N3":
+            return "Asylums and Homes - Orphanages";
+            break;
+        case "N4":
+            return "Asylums and Homes - Juvenile Detention Houses";
+            break;
+        case "N9":
+            return "Asylums and Homes - Miscellaneous";
+            break;
+        case "O1":
+            return "Office Buildings - Fireproof - Up to Nine Stories";
+            break;
+        case "O2":
+            return "Office Buildings - Ten Stories & Over (Side Street Type)";
+            break;
+        case "O3":
+            return "Office Buildings - Ten Stories & Over (Main Avenue Type)";
+            break;
+        case "O4":
+            return "Office Buildings - Tower Type";
+            break;
+        case "O5":
+            return "Office Buildings - Semi-Fireproof";
+            break;
+        case "O6":
+            return "Office Buildings - Bank Building (Designed Exclusively for Banking)";
+            break;
+        case "O7":
+            return "Office Buildings - Professional Buildings";
+            break;
+        case "O8":
+            return "Office Buildings - With Residential Apartments";
+            break;
+        case "O9":
+            return "Office Buildings - Miscellaneous";
+            break;
+        case "P1":
+            return "Places of Public Assembly (Indoor) and Cultural - Concert Halls";
+            break;
+        case "P2":
+            return "Places of Public Assembly (Indoor) and Cultural - Lodge Rooms";
+            break;
+        case "P3":
+            return "Places of Public Assembly (Indoor) and Cultural - YWCA, YMCA, YWHA, YMHA, PAL";
+            break;
+        case "P4":
+            return "Places of Public Assembly (Indoor) and Cultural - Beach Club";
+            break;
+        case "P5":
+            return "Places of Public Assembly (Indoor) and Cultural - Community Center";
+            break;
+        case "P6":
+            return "Places of Public Assembly (Indoor) and Cultural - Amusement Places, Bathhouses, Boat Houses";
+            break;
+        case "P7":
+            return "Places of Public Assembly (Indoor) and Cultural - Museum";
+            break;
+        case "P8":
+            return "Places of Public Assembly (Indoor) and Cultural - Library";
+            break;
+        case "P9":
+            return "Places of Public Assembly (Indoor) and Cultural - Miscellaneous Including Riding Academies and Stables";
+            break;
+        case "Q0":
+            return "Outdoor Recreation Facilities - Open Space";
+            break;
+        case "Q1":
+            return "Outdoor Recreation Facilities - Parks";
+            break;
+        case "Q2":
+            return "Outdoor Recreation Facilities - Playgrounds";
+            break;
+        case "Q3":
+            return "Outdoor Recreation Facilities - Outdoor Pools";
+            break;
+        case "Q4":
+            return "Outdoor Recreation Facilities - Beaches";
+            break;
+        case "Q5":
+            return "Outdoor Recreation Facilities - Golf Courses";
+            break;
+        case "Q6":
+            return "Outdoor Recreation Facilities - Stadium, Race Tracks, Baseball Fields";
+            break;
+        case "Q7":
+            return "Outdoor Recreation Facilities - Tennis Courts";
+            break;
+        case "Q8":
+            return "Outdoor Recreation Facilities - Marinas/Yacht Clubs";
+            break;
+        case "Q9":
+            return "Outdoor Recreation Facilities - Miscellaneous";
+            break;
+        case "R0":
+            return "Condominiums - Condo Biling Lot";
+            break;
+        case "R1":
+            return "Condominiums - 2-10 Unit Residential Bldg, Residential Unit";
+            break;
+        case "R2":
+            return "Condominiums - Walk-up, Residential Unit";
+            break;
+        case "R3":
+            return "Condominiums - 1-3 Story, Residential Unit";
+            break;
+        case "R4":
+            return "Condominiums - Apartment/Elevated, Residential Unit";
+            break;
+        case "R5":
+            return "Condominiums - Miscellaneous Commercial";
+            break;
+        case "R6":
+            return "Condominiums - 1-3 Units, Residential Unit";
+            break;
+        case "R7":
+            return "Condominiums - 1-3 Units, Commercial Unit";
+            break;
+        case "R8":
+            return "Condominiums - 2-10 Unit Residential Bldg, Commercial Unit";
+            break;
+        case "R9":
+            return "Condominiums - Condop";
+            break;
+        case "RA":
+            return "Condominiums - Cultural, Medical, Educational, etc.";
+            break;
+        case "RB":
+            return "Condominiums - Office Buildings";
+            break;
+        case "RC":
+            return "Condominiums - Commercial Building (Mixed Commercial Condo Building Classification Codes)";
+            break;
+        case "RD":
+            return "Condominiums - Residential Building (Mixed Condo Building Classification Codes)";
+            break;
+        case "RG":
+            return "Condominiums - Indoor Parking";
+            break;
+        case "RH":
+            return "Condominiums - Hotel/Boatel";
+            break;
+        case "RI":
+            return "Condominiums - Mixed Warehouse/Factory/Industrial & Commercial";
+            break;
+        case "RK":
+            return "Condominiums - Store Buildings - Retail";
+            break;
+        case "RM":
+            return "Condominiums - Mixed Residential & Commercial Building (Mixed Residential & Commercial)";
+            break;
+        case "RR":
+            return "Condominiums - Condominium Rental";
+            break;
+        case "RS":
+            return "Condominiums - Non-Business Storage Space";
+            break;
+        case "RW":
+            return "Condominiums - Warehouse/Factory/Industrial";
+            break;
+        case "RX":
+            return "Condominiums - Mixed Residential, Commercial & Industrial";
+            break;
+        case "RZ":
+            return "Condominiums - Mixed Residential & Warehouse";
+            break;
+        case "S0":
+            return "Residence - Multiple Use - Primarily One Family with Two Stores or Offices";
+            break;
+        case "S1":
+            return "Residence - Multiple Use - Primarily one Family With Store or Office";
+            break;
+        case "S2":
+            return "Residence - Multiple Use - Primarily Two Family With Store or Office";
+            break;
+        case "S3":
+            return "Residence - Multiple Use - Primarily Three Family With Store or Office";
+            break;
+        case "S4":
+            return "Residence - Multiple Use - Primarily Four Family With Store or Office";
+            break;
+        case "S5":
+            return "Residence - Multiple Use - Primarily Five to Six Family With Store or Office";
+            break;
+        case "S9":
+            return "Residence - Multiple Use - Primarily One to Six Families with Stores or Offices";
+            break;
+        case "T1":
+            return "Transportation Facilities - Airports, Air Fields, Terminals";
+            break;
+        case "T2":
+            return "Transportation Facilities - Piers, Docks, Bulkheads";
+            break;
+        case "T9":
+            return "Transportation Facilities - Miscellaneous";
+            break;
+        case "U0":
+            return "Utility Bureau Properties - Utility Company Land and Buildings";
+            break;
+        case "U1":
+            return "Utility Bureau Properties - Bridges, Tunnels, Highways";
+            break;
+        case "U2":
+            return "Utility Bureau Properties - Electric Utilies, Gas";
+            break;
+        case "U3":
+            return "Utility Bureau Properties - Ceiling R.R";
+            break;
+        case "U4":
+            return "Utility Bureau Properties - Telephone Utilities";
+            break;
+        case "U5":
+            return "Utility Bureau Properties - Communications Facilities (Other Than Telephone)";
+            break;
+        case "U6":
+            return "Utility Bureau Properties - Railroads, Private Ownership";
+            break;
+        case "U7":
+            return "Utility Bureau Properties - Transportation, Public Ownership";
+            break;
+        case "U8":
+            return "Utility Bureau Properties - Revocable Consents";
+            break;
+        case "U9":
+            return "Utility Bureau Properties - Miscellaneous";
+            break;
+        case "V0":
+            return "Vacant Land - Zoned Residential, Except Not Manhattan Below 110 St";
+            break;
+        case "V1":
+            return "Vacant Land - Not Zoned Residential or Manhattan Below 110 St";
+            break;
+        case "V2":
+            return "Vacant Land - Not Zoned Residential, but Adjacent to Tax Class 1 Dwelling";
+            break;
+        case "V3":
+            return "Vacant Land - Zoned Primarily Residential, Except Not Manhattan Below 110 St";
+            break;
+        case "V4":
+            return "Vacant Land - Police or Fire Department";
+            break;
+        case "V5":
+            return "Vacant Land - School Site or Yard";
+            break;
+        case "V6":
+            return "Vacant Land - Library, Hospitals or Museums";
+            break;
+        case "V7":
+            return "Vacant Land - Port Authority of NY and NJ";
+            break;
+        case "V8":
+            return "Vacant Land - State & U.S.";
+            break;
+        case "V9":
+            return "Vacant Land - Miscellaneous (Department of Real Estate and Other Public Places)";
+            break;
+        case "W1":
+            return "Educational Structures - Public Elementary Junior and Senior High Schools";
+            break;
+        case "W2":
+            return "Educational Structures - Parochai, Yeshivas";
+            break;
+        case "W3":
+            return "Educational Structures - Schools or Academies";
+            break;
+        case "W4":
+            return "Educational Structures - Training Schools";
+            break;
+        case "W5":
+            return "Educational Structures - City University";
+            break;
+        case "W6":
+            return "Educational Structures - Other Colleges and Universities";
+            break;
+        case "W7":
+            return "Educational Structures - Theological Seminaries";
+            break;
+        case "W8":
+            return "Educational Structures - Other Private Schools";
+            break;
+        case "W9":
+            return "Educational Structures - Miscellaneous";
+            break;
+        case "Y1":
+            return "Selected Government Installations - Fire Department";
+            break;
+        case "Y2":
+            return "Selected Government Installations - Police Department";
+            break;
+        case "Y3":
+            return "Selected Government Installations - Prisons, Jails, Houses of Detention";
+            break;
+        case "Y4":
+            return "Selected Government Installations - Military and Naval";
+            break;
+        case "Y5":
+            return "Selected Government Installations - Department of Real Estate";
+            break;
+        case "Y6":
+            return "Selected Government Installations - Department of Sanitation";
+            break;
+        case "Y7":
+            return "Selected Government Installations - Department of Ports and Terminals";
+            break;
+        case "Y8":
+            return "Selected Government Installations - Department of Public Works";
+            break;
+        case "Y9":
+            return "Selected Government Installations - Department of Environmental Protection";
+            break;
+        case "Z0":
+            return "Miscellaneous - Tennis Court, Pool, Shet, etc.";
+            break;
+        case "Z1":
+            return "Miscellaneous - Court House";
+            break;
+        case "Z2":
+            return "Miscellaneous - Public Parking Areas";
+            break;
+        case "Z3":
+            return "Miscellaneous - Post Office";
+            break;
+        case "Z4":
+            return "Miscellaneous - Foreign Governments";
+            break;
+        case "Z5":
+            return "Miscellaneous - United Nations";
+            break;
+        case "Z6":
+            return "Miscellaneous - Land under Water";
+            break;
+        case "Z7":
+            return "Miscellaneous - Easements";
+            break;
+        case "Z8":
+            return "Miscellaneous - Cemeteries";
+            break;
+        case "Z9":
+            return "Miscellaneous - Other";
+            break;
+        default:
+            return "Code:" + code + " not found";
+    }
+}
+%>

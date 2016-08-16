@@ -1,0 +1,121 @@
+<% include ../functions/buildingClass.ejs %>
+<% include ../functions/communityDistrict.ejs %>
+<% include ../functions/taxLot.ejs %>
+<% include ../functions/landUse.ejs %>
+<% include ../functions/fireComp.ejs %>
+<% include ../functions/ownerType.ejs %>
+<%# console.log(result) %>
+<% var sizeOpen = "<h5>" %>
+<% var sizeClose = "<h5>" %>
+<% var labelOpen = "<b>" %>
+<% var labelClose = "</b>" %>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+<% if (result.bin != undefined) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Building ID:<a href="#" data-toggle="tooltip" title="The city issued unique ID of this building."><%- labelClose %> <%= result.bin %></a><%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.UnitsTotal != undefined) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Number of units:<%- labelClose %> <%= result.UnitsTotal %><%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.BldgClass != undefined) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Building Class:<%- labelClose %> <%= buildingClass(result.BldgClass) %><%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.ComArea != undefined && result.ComArea != 0) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Commercial Space:<%- labelClose %> <%= (result.ComArea).formatMoney(0) %> sq. ft<%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.ResArea != undefined && result.ResArea != 0) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Residential Space:<%- labelClose %> <%= (result.ResArea).formatMoney(0) %> sq. ft<%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.OfficeArea != undefined && result.OfficeArea != 0) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Office Space:<%- labelClose %> <%= (result.OfficeArea).formatMoney(0) %> sq. ft<%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.RetailArea != undefined && result.RetailArea != 0) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Retail Space:<%- labelClose %> <%= (result.RetailArea).formatMoney(0) %> sq. ft<%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.GarageArea != undefined && result.GarageArea != 0) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Garage Space:<%- labelClose %> <%= (result.GarageArea).formatMoney(0) %> sq. ft<%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.StrgeArea != undefined && result.StrgeArea != 0) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Storage Space:<%- labelClose %> <%= (result.StrgeArea).formatMoney(0) %> sq. ft<%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.FactryArea != undefined && result.FactryArea != 0) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Factory Space:<%- labelClose %> <%= (result.FactryArea).formatMoney(0) %> sq. ft<%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.OtherArea != undefined && result.OtherArea != 0) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Other Space:<%- labelClose %> <%= (result.OtherArea).formatMoney(0) %> sq. ft<%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.BldgArea != undefined) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Total Space:<%- labelClose %> <%= (result.BldgArea).formatMoney(0) %> sq. ft<%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.LotArea != undefined) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Building Footprint:<%- labelClose %> <%= (result.LotArea).formatMoney(0) %> sq. ft<%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.LotFront != undefined && result.LotDepth != undefined) { %>
+  <div class="">
+   <%- sizeOpen %><%- labelOpen %>Lot:<%- labelClose %> <%= result.LotFront %>' x <%= result.LotDepth %>'<%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.AssessTot != undefined) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Assessed Value:<%- labelClose %> <a href="#" data-toggle="tooltip" title="The tentative assessed land value for Fiscal Year 2017!">$<%= (result.AssessTot).formatMoney(0) %></a><%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.CD != undefined) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Community District:<%- labelClose %> <%= communityDistrict(result.CD) %><%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.Lot != undefined) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Tax Lot:<%- labelClose %> <%= taxLot(result.Lot) %><%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.LandUse != undefined) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Land Use:<%- labelClose %> <%= landUse(result.LandUse) %><%- sizeClose %>
+</div>
+<% } %> 
+<% if (result.OwnerName != undefined) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Owner Name:<%- labelClose %> <%= result.OwnerName %><%- sizeClose %>
+</div>
+<% } %>
+<% if (result.FireComp != undefined) { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Fire Department:<%- labelClose %> <%= fireComp(result.FireComp) %><%- sizeClose %>
+</div>
+<% } %>
+<% if (result.OwnerType != undefined && result.OwnerType != '') { %>
+  <div class="">
+    <%- sizeOpen %><%- labelOpen %>Owner Type:<%- labelClose %> <%= ownerType(result.OwnerType) %><%- sizeClose %>
+</div>
+<% } %>

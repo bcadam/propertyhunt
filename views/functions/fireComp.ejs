@@ -1,0 +1,31 @@
+<%
+fireComp = function(code){
+    // console.log("code");
+    // console.log(typeof code);
+    // console.log(code);
+    var firstLetter = code.substring(0,1);
+    var number = code;
+    number = number.slice( 1 );
+    //console.log(number);
+
+    if (firstLetter == 'E')
+    {
+        firstLetter = 'Engine ';
+    }
+    else if (firstLetter == 'E')
+    {
+        firstLetter = 'Ladder ';
+    }
+    else if (code <= 7599)
+    {
+        firstLetter = 'Squad ';
+    }
+    else
+    {
+        firstLetter = firstLetter;
+    }
+
+    return firstLetter + parseInt(number);
+
+}
+%>

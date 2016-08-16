@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+  <script>
+  
+
+//http://localhost:5000/building?Borough=MN&Block=16&Lot=20&CD=101&CT2010=317.04&CB2010=4001&SchoolDist=2&Council=1&ZipCode=10280&FireComp=E010&PolicePrct=1&HealthArea=8900&SanitBoro=1&SanitDistrict=1&SanitSub=1A&Address=70+BATTERY+PLACE&ZoneDist1=BPC&ZoneDist2=&ZoneDist3=&ZoneDist4=&Overlay1=&Overlay2=&SPDist1=BPC&SPDist2=&LtdHeight=&AllZoning1=BPC%2FBPC&AllZoning2=&SplitZone=N&BldgClass=D8&LandUse=3&Easements=0&OwnerType=X&OwnerName=NY+URBAN+LLC&LotArea=29700&BldgArea=230766&ComArea=0&ResArea=230765&OfficeArea=0&RetailArea=0&GarageArea=0&StrgeArea=0&FactryArea=0&OtherArea=0&AreaSource=2&NumBldgs=1&NumFloors=9&UnitsRes=209&UnitsTotal=210&LotFront=198&LotDepth=150&BldgFront=0&BldgDepth=0&Ext=&ProxCode=0&IrrLotCode=N&LotType=5&BsmtCode=5&AssessLand=5355000&AssessTot=17366850&ExemptLand=5355000&ExemptTot=17366850&YearBuilt=1998&BuiltCode=&YearAlter1=0&YearAlter2=0&HistDist=&Landmark=&BuiltFAR=7.77&ResidFAR=0&CommFAR=0&FacilFAR=0&BoroCode=1&BBL=1000160020&CondoNo=0&Tract2010=31704&XCoord=979342&YCoord=196965&ZoneMap=12b&ZMCode=&Sanborn=101S088&TaxMap=10101&EDesigNum=&APPBBL=1000160003&APPDate=9%2F30%2F1988&PLUTOMapID=1&Version=16v1&number=70&street=
+
+var number = getUrlParameter('number');
+var street = getUrlParameter('streetaddress');
+var borough = getUrlParameter('Borough');
+var ZipCode = getUrlParameter('ZipCode');
+
+
+var apiEnding = "/api/building/" + number + "/" + street + "/" + borough + "/" + ZipCode;
+// console.log(apiEnding);
+
+
+    $.getJSON( apiEnding, function( data ) {
+
+      console.log("data");
+      data = data[0];
+      console.log(data);
+      // var converted = JSON.stringify(data);
+      // console.log(converted);
+
+      var items = [];
+
+   
+
+      items.push('<b>PropertyHunt Building Report</b>');
+
+     
+      $( "<ul/>", {
+            "class": "my-new-list",
+            html: items.join( "" )
+      }).appendTo( "#results" );
+
+    });
+
+
+</script>
+</head>
+
+<body>
+
+  <% include ../partials/nav.ejs %>
+
+<div id='results'></div>
+
+</body>
+</html>

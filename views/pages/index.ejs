@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<% include ../partials/header.ejs %>
+</head>
+<body>
+<!-- Main container -->
+<div class="page-container">
+    
+<% include ../partials/nav.ejs %>
+
+<!-- landing -->
+<div class="bloc b-parallax bg-city-overlay tc-gainsboro bgc-verdigris" id="landing">
+  <div class="container bloc-md">
+    <div class="row">
+      <div class="col-sm-6">
+        <img src="img/new%20york%20red@2x.png" class="img-responsive center-block" />
+      </div>
+      <div class="col-sm-6">
+        <div style="font-size:100px;font-weight:500">Big City,<br /> Big Data</div>
+        <div style="font-size:30px;font-weight:900"><br /><p>Run a report on any building in NYC</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- landing END -->
+
+<% include ../partials/lookup.ejs %>
+
+<% include ../partials/explanation.ejs %>
+
+<% include ../partials/pricing.ejs %>
+
+<!-- ScrollToTop Button -->
+<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1')"><span class="fa fa-chevron-up"></span></a>
+<!-- ScrollToTop Button END-->
+
+
+<% include ../partials/footer.ejs %>
+
+</div>
+<!-- Main container END -->
+    
+<script type="text/javascript" src="library.js"></script>
+
+</body>
+</html>

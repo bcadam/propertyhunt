@@ -1,0 +1,37 @@
+<%
+taxLot = function(code){
+    // console.log("code");
+    // console.log(typeof code);
+    // console.log(code);
+  
+    if (code <= 999)
+    {
+        return "Traditional Tax Lot";
+    }
+    else if (code <= 6999)
+    {
+        return "Condominium Unit Lot";
+    }
+    else if (code <= 7599)
+    {
+        return "Condominium Billing Lot";
+    }
+    else if (code <= 8899)
+    {
+        return "Subterranean Tax Lot";
+    }
+    else if (code <- 8999)
+    {
+        return "DTM Dummy Tax Lot";
+    }
+    else if (code <= 9899)
+    {
+        return "Air Rights Tax Lot";
+    }
+    else
+    {
+        return code;
+    }
+
+}
+%>

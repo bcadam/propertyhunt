@@ -1,0 +1,34 @@
+useruser
+UserUser1
+
+
+
+INSERT INTO “NY Buildings”
+
+
+
+mysql -h property.coz6tg30r0u1.us-east-1.rds.amazonaws.com -P 3306 -u useruser -p
+
+
+
+NYC Department of Buildings
+Property Profile Overview
+				
+70 BATTERY PLACE	MANHATTAN   10280	BIN#  1085778    	
+
+
+
+1	16	20	1085778	70	000070000AA		L	70	000070000AA		L	1	12670	1	BATTERY PLACE                   			1	2	11267001010	18126	10280
+
+
+segid
+zipped
+b10sc
+addrtype
+stance
+sc5
+lhns
+lhnd
+bin
+
+1029928	CLOSED	06/23/1994	1           	PIKE STREET                     	1003612	103		05	MAN.	05/07/2013	L2	05/07/2013	05/08/2013 12:00:00 AM
