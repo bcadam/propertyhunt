@@ -27,6 +27,10 @@ app.get('/tos', function(request, response) {
     response.render('pages/tos', {root: __dirname, websiteInfo: websiteInfo});
 });
 
+app.get('/test', function(request, response) {
+    response.render('partials/rent', {rentAverage:{location:'Battery Park City', amounts:{0:1000,1:1500,2:2500,3:5000}}});
+});
+
 var connection = mysql.createConnection({
     host: 'property.coz6tg30r0u1.us-east-1.rds.amazonaws.com',
     user: 'useruser',
@@ -115,7 +119,6 @@ function getPlutoAndBuildingAndMarket(query,response){
 		for(var key in results[1][0]) result[key]=results[1][0][key];
 		//for(var key in results[2]) result[key]=results[2][key];
 		result.farmersMarkets = results[2];
-
 		//console.log(result);
 		//console.log(buildingInfo);
 		//return(buildingInfo);
@@ -168,18 +171,6 @@ app.get('/report', function(request, response) {
 
 apiRouter.get('/bin/:bin', function(request, response) {
     getBinInfo(request.params.bin,response);
-}); 
-
-apiRouter.get('/test', function(request, response) {
-    var sqlQuery = 'SELECT * FROM NYCPluto LIMIT 10';
-    //console.log(sqlQuery);
-
-    connection.query(sqlQuery, function(err, rows) {
-    	if(err){console.log(err)};
-	  	console.log(rows);
-	  	response.json(rows);
-	  	//connection.end();
-	});
 }); 
 
 apiRouter.get('/pluto/:number/:street?/:borough?/:zipcode?', function(request, response) {
