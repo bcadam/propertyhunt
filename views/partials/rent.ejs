@@ -16,7 +16,7 @@
         data: {
             labels: ["Studio", "1 BR", "2 BR", "3+ BR"],
             datasets: [{
-                label: 'Price per Bedroom in <%= rentAverage.location %>',
+                label: '<%= rentAverage.location %>',
                 data: [<%= rentAverage.amounts[0] %>, <%= rentAverage.amounts[1] %>, <%= rentAverage.amounts[2] %>, <%= rentAverage.amounts[3] %>],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
